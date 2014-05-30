@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" href="/css/ui-lightness/jquery-ui-1.10.4.min.css">
+	<link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/todotasks.css">
+</head>
+<body>
+	<header>
+		<h1>Simple to-do manager</h1>
+		<p>Drag and drop items to the status you want or add a new task</p>
+		<a href="#" class="btn btn-lg btn-default" data-toggle="modal" data-target="#basicModal">Add new task</a>			
+	</header>
+	<section>
+		<div id="todo" class="drop">
+			<div class="title">
+				<h2>To-do</h2>
+			</div>
+		</div>
+		<div id="doing" class="drop">			
+			<div class="title">
+				<h2>Doing</h2>
+			</div>
+		</div>
+		<div id="done" class="drop">
+			<div class="title">
+				<h2>Done</h2>
+			</div>
+		</div>
+	</section>
+	<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	            <h4 class="modal-title" id="myModalLabel">Add new task</h4>
+	            </div>
+	            <div class="modal-body">
+        			<pre><label for="task">Task:  </label><input name="task" type="text"></pre>
+	            </div>
+	            <div class="modal-footer">
+	                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	                <button type="button" class="btn btn-primary" id="save">Save changes</button>
+	        </div>
+	    </div>
+	  </div>
+	</div>
+	<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            
+                <div class="modal-header">
+                    <button type="button" class="close cancel_del" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>
+                </div>
+            
+                <div class="modal-body">
+                    <p>Are you sure you want to dele this task?.</p>
+                    <p class="debug-url"></p>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default cancel_del" data-dismiss="modal">Cancel</button>
+                    <a href="#" class="btn btn-danger danger" id="delete">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+    <script src="/js/vendor/jquery-1.11.1.min.js"></script>
+	<script src="/js/vendor/jquery-migrate-1.2.1.min.js"></script>
+	<script src="/js/vendor/jquery-ui-1.10.4.min.js"></script>
+    <script src="/js/vendor/underscore-min.js"></script>
+    <script src="/js/vendor/backbone-min.js"></script>
+	<script src="/js/vendor/bootstrap.min.js"></script>
+
+    <script src="/js/init.js"></script>
+
+    <script src="/js/backbone/models/task-model.js"></script>
+    <script src="/js/backbone/collections/tasks-collection.js"></script>
+    <script src="/js/backbone/views/task-view.js"></script>
+    <script src="/js/backbone/views/app.js"></script>
+
+    <script src="/js/main.js"></script>
+
+	<script type="text/template" id="task-template">
+		<p><%= task %></p>
+		<a href="#"><img src="/images/round_delete.png" /></a>
+	</script>
+
+</body>
+</html>
