@@ -28,7 +28,6 @@ Todotasks.Views.App = Backbone.View.extend({
 	},
 	update_status : function(ev){
 		window.collections.tasks.each(function (model) {
-			// console.log($(ev.target).data('id'))
 			if (model.id === $(ev.target).data('id')){
 				model.attributes.status = ev.currentTarget.id;
 				model.save();

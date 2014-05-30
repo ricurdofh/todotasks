@@ -3,7 +3,6 @@ $(document).ready(function(){
 	window.collections.tasks = new Todotasks.Collections.Tasks();
 	window.collections.tasks.on('add', function (model){
 		var view = new Todotasks.Views.Task({model: model});
-		// debugger;
 		view.render();
 		window.collections.tasks.fetch();
 		console.log(model.toJSON().id)
