@@ -12,19 +12,22 @@ Todotasks.Views.App = Backbone.View.extend({
 	save : function (ev) {
 		ev.preventDefault();
 
-		var task = $('input[name=task]').val();
+		var task = $('input[name=task]').val().trim();
 		var status = "todo";
 		var data = {			
 			"task"		:	task,
 			"status"	: 	status
 		};
+
+		$('#basicModal').modal('hide');
+
+		if (task == "") return;
+
 		var model = new Todotasks.Models.Task(data);
 
 		model.save();
 
 		window.collections.tasks.fetch();
-
-		$('#basicModal').modal('hide')
 	},
 	update_status : function(ev){
 		window.collections.tasks.each(function (model) {
