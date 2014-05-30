@@ -4,8 +4,6 @@ $(document).ready(function(){
 	window.collections.tasks.on('add', function (model){
 		var view = new Todotasks.Views.Task({model: model});
 		view.render();
-		window.collections.tasks.fetch();
-		console.log(model.toJSON().id)
 		view.$el.data('id', model.toJSON().id);
 		view.$el.appendTo("#"+model.toJSON().status);
 
